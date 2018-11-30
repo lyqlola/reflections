@@ -3,19 +3,26 @@ A hidden directory .git is created. This sub-directory contains the files requir
 
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
-Staging area is where git put temporarily the changes you want to commit. It's part of git. Working directory is not part of git and repository is where git store all your files and history of changes of files. 
+Staging area is where git put temporarily the changes you want to commit. It's part of git. Working directory is not part of git. Repository is where git store all your files and history of changes of files. The staging area is a copy of the most recent commit in the repository until new changes are added to it.
 Staging area enables you to commit only the changes you want to and makes your commit more logical.
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+Before commit, first git add changes needed for the logical change. Then git diff to make sure only changes wanted are in the staging area.
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
+Branches help in that I want to something experimental/different and not yet mature enough to put into the master branch. git branch with argument creates a new branch. git checkout helps to switch between branches and branch provides a label name easier to remember than commit ID. 
 
 How do the diagrams help you visualize the branch structure?
+Tree diagrams are a very good analogue of the branch structure. It shows the relationship between commits: the tip of the branch and the parent of each commit. And it also shows which commits won't show up in git log command.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+It will create a new commit containing all the changes made in the merged branches.
+The tip of the checked-out branch will now point to the new commit. And the new commit will contain info to the then tips of the merged branches as its parents.
 
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+Pros: Git's automatic merging can save users time and make it more convenient to collaborate using git;
+Cons: Git's automatic merging may include inconsistent changes that are not desirable; or more seriously include changes that conflict which may finally result in crash when compiling or running the code. Merging manually can otherwise ensure logical and correct commits.
